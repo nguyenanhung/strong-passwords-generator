@@ -20,6 +20,22 @@ namespace nguyenanhung\Library\Password;
 class StrongPassword
 {
     /**
+     * Function generateRandomPassword
+     *
+     * @param int $length
+     *
+     * @return string
+     * @author   : 713uk13m <dev@nguyenanhung.com>
+     * @copyright: 713uk13m <dev@nguyenanhung.com>
+     * @time     : 08/19/2021 49:44
+     * @see      https://github.com/nguyenanhung/strong-passwords-generator/blob/master/test/example_with_class.php
+     */
+    public static function generateRandomPassword($length = 20)
+    {
+        return static::generateStrongPassword($length, TRUE);
+    }
+
+    /**
      * Function generateStrongPassword
      *
      * @param int    $length
@@ -80,5 +96,26 @@ class StrongPassword
         $dashString .= $password;
 
         return $dashString;
+    }
+
+    /**
+     * Function validStrongPassword
+     *
+     * @param string $password
+     *
+     * @return bool
+     * @author   : 713uk13m <dev@nguyenanhung.com>
+     * @copyright: 713uk13m <dev@nguyenanhung.com>
+     * @time     : 08/19/2021 43:56
+     * @see      https://github.com/nguyenanhung/strong-passwords-generator/blob/master/test/example_with_class.php
+     */
+    public static function validStrongPassword($password = '')
+    {
+        $containsSmallLetter = preg_match('/[a-z]/', $password); // Yêu cầu có ít nhất 1 ký tự viết thường
+        $containsCapsLetter  = preg_match('/[A-Z]/', $password); // Yêu cầu có ít nhất 1 ký tự viết hoa
+        $containsDigit       = preg_match('/\d/', $password); // Yêu cầu có ít nhất 1 số
+        $containsSpecial     = preg_match('/[^a-zA-Z\d]/', $password); // Yêu cầu có ít nhất 1 ký tự đặc biệt
+
+        return ($containsSmallLetter && $containsCapsLetter && $containsDigit && $containsSpecial);
     }
 }

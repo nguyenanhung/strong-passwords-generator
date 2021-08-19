@@ -29,3 +29,39 @@ if (!function_exists('generateStrongPassword')) {
         return trim($output);
     }
 }
+if (!function_exists('validStrongPassword')) {
+    /**
+     * Function validStrongPassword
+     *
+     * @param string $password
+     *
+     * @return bool
+     * @author    : 713uk13m <dev@nguyenanhung.com>
+     * @copyright : 713uk13m <dev@nguyenanhung.com>
+     * @time      : 08/19/2021 44:53
+     * @link      https://github.com/nguyenanhung/strong-passwords-generator
+     * @see       https://github.com/nguyenanhung/strong-passwords-generator/blob/master/test/example_with_helper.php
+     */
+    function validStrongPassword($password = '')
+    {
+        return nguyenanhung\Library\Password\StrongPassword::validStrongPassword($password);
+    }
+}
+if (!function_exists('generateRandomPassword')) {
+    /**
+     * Function generateRandomPassword
+     *
+     * @param int $length
+     *
+     * @return bool
+     * @author    : 713uk13m <dev@nguyenanhung.com>
+     * @copyright : 713uk13m <dev@nguyenanhung.com>
+     * @time      : 08/19/2021 44:53
+     * @link      https://github.com/nguyenanhung/strong-passwords-generator
+     * @see       https://github.com/nguyenanhung/strong-passwords-generator/blob/master/test/example_with_helper.php
+     */
+    function generateRandomPassword($length = 20)
+    {
+        return nguyenanhung\Library\Password\StrongPassword::generateRandomPassword($length);
+    }
+}
