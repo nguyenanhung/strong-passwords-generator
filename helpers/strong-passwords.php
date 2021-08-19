@@ -16,10 +16,11 @@ if (!function_exists('generateStrongPassword')) {
      * @param string $availableSets
      *
      * @return string
-     * @author   : 713uk13m <dev@nguyenanhung.com>
-     * @copyright: 713uk13m <dev@nguyenanhung.com>
-     * @time     : 08/19/2021 18:06
-     * @link     : https://github.com/nguyenanhung/strong-passwords-generator
+     * @author    : 713uk13m <dev@nguyenanhung.com>
+     * @copyright : 713uk13m <dev@nguyenanhung.com>
+     * @time      : 08/19/2021 18:06
+     * @link      https://github.com/nguyenanhung/strong-passwords-generator
+     * @see       https://github.com/nguyenanhung/strong-passwords-generator/blob/master/test/example_with_helper.php
      */
     function generateStrongPassword($length = 16, $addDashes = FALSE, $availableSets = 'hung')
     {

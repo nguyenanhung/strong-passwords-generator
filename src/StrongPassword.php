@@ -30,6 +30,7 @@ class StrongPassword
      * @author   : 713uk13m <dev@nguyenanhung.com>
      * @copyright: 713uk13m <dev@nguyenanhung.com>
      * @time     : 08/19/2021 23:50
+     * @see      https://github.com/nguyenanhung/strong-passwords-generator/blob/master/test/example_with_class.php
      */
     public static function generateStrongPassword($length = 16, $addDashes = FALSE, $availableSets = 'hung')
     {

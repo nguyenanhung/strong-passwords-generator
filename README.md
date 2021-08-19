@@ -48,6 +48,8 @@ echo "\n";
 
 ```
 
+See: https://github.com/nguyenanhung/strong-passwords-generator/blob/master/test/example_with_class.php
+
 #### Quick Helper
 
 Example Code
@@ -70,6 +72,8 @@ echo generateStrongPassword('20', TRUE, 'g'); // Printer: %@#?-?$??-*%@&-?@%#-!%
 echo "\n";
 
 ```
+
+See: https://github.com/nguyenanhung/strong-passwords-generator/blob/master/test/example_with_helper.php
 
 Very easy and simple
 
