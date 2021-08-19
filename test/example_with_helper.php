@@ -21,3 +21,6 @@ echo generateStrongPassword('20', TRUE, 'n'); // Printer: 3939-6257-5463-7739-86
 echo "\n";
 echo generateStrongPassword('20', TRUE, 'g'); // Printer: %@#?-?$??-*%@&-?@%#-!%!@
 echo "\n";
+echo validStrongPassword('vu6QsYz@466V?FxRv*Z4'); // Printer: true
+echo "\n";
+echo generateRandomPassword(36); // Printer: 3m8GRR-E!bqFz-j%P8dW-sC*h2Q-9fnY88-3Dg%8%
