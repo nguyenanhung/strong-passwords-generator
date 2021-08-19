@@ -1,6 +1,6 @@
 # Strong Passwords Generator
 
-Script Generate Strong Passwords with PHP
+Script Generator Strong Passwords with PHP
 
 ## Installation
 
