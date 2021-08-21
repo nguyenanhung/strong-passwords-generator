@@ -1,7 +1,7 @@
 {
     "name": "nguyenanhung/strong-passwords-generator",
     "type": "library",
-    "description": "Strong Passwords Generator",
+    "description": "",
     "keywords": [
         "php",
         "helper"
@@ -17,7 +17,8 @@
         }
     ],
     "require": {
-        "php": ">=5.6"
+        "php": ">=5.6",
+        "ext-mcrypt": "*"
     },
     "autoload": {
         "psr-4": {
