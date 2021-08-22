@@ -53,10 +53,10 @@ if (!function_exists('generateRandomPassword')) {
      *
      * @param int $length
      *
-     * @return bool
+     * @return string
      * @author    : 713uk13m <dev@nguyenanhung.com>
      * @copyright : 713uk13m <dev@nguyenanhung.com>
-     * @time      : 08/19/2021 44:53
+     * @time      : 08/22/2021 12:16
      * @link      https://github.com/nguyenanhung/strong-passwords-generator
      * @see       https://github.com/nguyenanhung/strong-passwords-generator/blob/master/test/example_with_helper.php
      */
