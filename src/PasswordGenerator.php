@@ -50,7 +50,15 @@ use InvalidArgumentException;
 class PasswordGenerator
 {
     /**
+     * Function getASCIIPassword
+     *
+     * @param $length
+     *
+     * @return false|string
      * @throws \Exception
+     * @author   : 713uk13m <dev@nguyenanhung.com>
+     * @copyright: 713uk13m <dev@nguyenanhung.com>
+     * @time     : 09/07/2021 50:35
      */
     public static function getASCIIPassword($length)
     {
@@ -60,7 +68,15 @@ class PasswordGenerator
     }
 
     /**
+     * Function getAlphaNumericPassword
+     *
+     * @param $length
+     *
+     * @return false|string
      * @throws \Exception
+     * @author   : 713uk13m <dev@nguyenanhung.com>
+     * @copyright: 713uk13m <dev@nguyenanhung.com>
+     * @time     : 09/07/2021 50:32
      */
     public static function getAlphaNumericPassword($length)
     {
@@ -70,7 +86,15 @@ class PasswordGenerator
     }
 
     /**
+     * Function getHexPassword
+     *
+     * @param $length
+     *
+     * @return false|string
      * @throws \Exception
+     * @author   : 713uk13m <dev@nguyenanhung.com>
+     * @copyright: 713uk13m <dev@nguyenanhung.com>
+     * @time     : 09/07/2021 50:29
      */
     public static function getHexPassword($length)
     {
@@ -79,23 +103,31 @@ class PasswordGenerator
         return self::getCustomPassword(str_split($hex), $length);
     }
 
-    /* 
+    /**
+     * Function getCustomPassword
+     *
      * Create a random password composed of a custom character set.
      * $characterSet - An *array* of strings the password can be composed of.
      * $length - The number of random strings (in $characterSet) to include in the password.
      * Returns false on error (always check!).
-     */
-    /**
+     *
+     * @param $characterSet
+     * @param $length
+     *
+     * @return false|string
      * @throws \Exception
+     * @author   : 713uk13m <dev@nguyenanhung.com>
+     * @copyright: 713uk13m <dev@nguyenanhung.com>
+     * @time     : 09/07/2021 50:09
      */
     public static function getCustomPassword($characterSet, $length)
     {
         if ($length < 1 || !is_array($characterSet))
-            return FALSE;
+            return false;
 
         $charSetLen = count($characterSet);
         if ($charSetLen == 0)
-            return FALSE;
+            return false;
 
         $random = self::getRandomInts($length * 2);
         $mask   = self::getMinimalBitMask($charSetLen - 1);
@@ -121,7 +153,7 @@ class PasswordGenerator
             $c = $random[$randIdx++] & $mask;
             // Only use the random number if it is in range, otherwise try another (next iteration).
             if ($c < $charSetLen)
-                $password .= self::sidechannel_safe_array_index($characterSet, $c);
+                $password .= self::sidechannelSafeArrayIndex($characterSet, $c);
             // FIXME: check the return value
 
             // Guarantee termination
@@ -183,7 +215,7 @@ class PasswordGenerator
     }
 
     /**
-     * Function sidechannel_safe_array_index - Returns the character at index $index in $string in constant time.
+     * Function sidechannelSafeArrayIndex - Returns the character at index $index in $string in constant time.
      *
      * @param $string
      * @param $index
@@ -193,12 +225,12 @@ class PasswordGenerator
      * @copyright: 713uk13m <dev@nguyenanhung.com>
      * @time     : 08/21/2021 02:22
      */
-    private static function sidechannel_safe_array_index($string, $index)
+    private static function sidechannelSafeArrayIndex($string, $index)
     {
         // FIXME: Make the const-time hack below work for all integer sizes, or
         // check it properly.
         if (count($string) > 65535 || $index > count($string)) {
-            return FALSE;
+            return false;
         }
         $character = 0;
         for ($i = 0; $i < count($string); $i++) {
@@ -250,16 +282,19 @@ class PasswordGenerator
         if ($numInts <= 0) {
             return $ints;
         }
-        $rawBinary = mcrypt_create_iv($numInts * PHP_INT_SIZE, MCRYPT_DEV_URANDOM);
-        for ($i = 0; $i < $numInts; ++$i) {
-            $thisInt = 0;
-            for ($j = 0; $j < PHP_INT_SIZE; ++$j) {
-                $thisInt = ($thisInt << 8) | (ord($rawBinary[$i * PHP_INT_SIZE + $j]) & 0xFF);
+        if (function_exists('mcrypt_create_iv') && defined('MCRYPT_DEV_URANDOM')) {
+            $rawBinary = mcrypt_create_iv($numInts * PHP_INT_SIZE, MCRYPT_DEV_URANDOM);
+            for ($i = 0; $i < $numInts; ++$i) {
+                $thisInt = 0;
+                for ($j = 0; $j < PHP_INT_SIZE; ++$j) {
+                    $thisInt = ($thisInt << 8) | (ord($rawBinary[$i * PHP_INT_SIZE + $j]) & 0xFF);
+                }
+                // Absolute value in two's compliment (with min int going to zero)
+                $thisInt = $thisInt & PHP_INT_MAX;
+                $ints[]  = $thisInt;
             }
-            // Absolute value in two's compliment (with min int going to zero)
-            $thisInt = $thisInt & PHP_INT_MAX;
-            $ints[]  = $thisInt;
         }
+
 
         return $ints;
     }
