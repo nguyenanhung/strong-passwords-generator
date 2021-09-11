@@ -7,7 +7,7 @@
         "helper"
     ],
     "homepage": "https://github.com/nguyenanhung/strong-passwords-generator",
-    "license": "GPL-3.0",
+    "license": "Apache-2.0",
     "authors": [
         {
             "name": "Nguyen An Hung",
