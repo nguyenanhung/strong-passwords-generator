@@ -1,7 +1,7 @@
 {
     "name": "nguyenanhung/strong-passwords-generator",
     "type": "library",
-    "description": "",
+    "description": "Simple, standone password generator with PHP",
     "keywords": [
         "php",
         "helper"

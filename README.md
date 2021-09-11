@@ -1,5 +1,7 @@
 # Strong Passwords Generator
 
+[![Latest Stable Version](http://poser.pugx.org/nguyenanhung/strong-passwords-generator/v)](https://packagist.org/packages/nguyenanhung/strong-passwords-generator) [![Total Downloads](http://poser.pugx.org/nguyenanhung/strong-passwords-generator/downloads)](https://packagist.org/packages/nguyenanhung/strong-passwords-generator) [![Latest Unstable Version](http://poser.pugx.org/nguyenanhung/strong-passwords-generator/v/unstable)](https://packagist.org/packages/nguyenanhung/strong-passwords-generator) [![License](http://poser.pugx.org/nguyenanhung/strong-passwords-generator/license)](https://packagist.org/packages/nguyenanhung/strong-passwords-generator) [![PHP Version Require](http://poser.pugx.org/nguyenanhung/strong-passwords-generator/require/php)](https://packagist.org/packages/nguyenanhung/strong-passwords-generator)
+
 Script Generator Strong Passwords with PHP
 
 ## Installation
