@@ -122,12 +122,14 @@ class PasswordGenerator
      */
     public static function getCustomPassword($characterSet, $length)
     {
-        if ($length < 1 || !is_array($characterSet))
+        if ($length < 1 || !is_array($characterSet)) {
             return false;
+        }
 
         $charSetLen = count($characterSet);
-        if ($charSetLen == 0)
+        if ($charSetLen === 0) {
             return false;
+        }
 
         $random = self::getRandomInts($length * 2);
         $mask   = self::getMinimalBitMask($charSetLen - 1);
@@ -152,8 +154,9 @@ class PasswordGenerator
             // This is wasteful, but RNGs are fast and doing otherwise adds complexity and bias.
             $c = $random[$randIdx++] & $mask;
             // Only use the random number if it is in range, otherwise try another (next iteration).
-            if ($c < $charSetLen)
+            if ($c < $charSetLen) {
                 $password .= self::sidechannelSafeArrayIndex($characterSet, $c);
+            }
             // FIXME: check the return value
 
             // Guarantee termination
@@ -184,7 +187,7 @@ class PasswordGenerator
             throw new InvalidArgumentException("min is greater than max.");
         }
 
-        if ($min_inclusive == $max_inclusive) {
+        if ($min_inclusive === $max_inclusive) {
             return $min_inclusive;
         }
 
@@ -229,14 +232,15 @@ class PasswordGenerator
     {
         // FIXME: Make the const-time hack below work for all integer sizes, or
         // check it properly.
-        if (count($string) > 65535 || $index > count($string)) {
+        $countStr = count($string);
+        if ($countStr > 65535 || $index > $countStr) {
             return false;
         }
         $character = 0;
-        for ($i = 0; $i < count($string); $i++) {
+        foreach ($string as $i => $iValue) {
             $x         = $i ^ $index;
             $mask      = (((($x | ($x >> 16)) & 0xFFFF) + 0xFFFF) >> 16) - 1;
-            $character |= ord($string[$i]) & $mask;
+            $character |= ord($iValue) & $mask;
         }
 
         return chr($character);
@@ -282,15 +286,16 @@ class PasswordGenerator
         if ($numInts <= 0) {
             return $ints;
         }
-        if (function_exists('mcrypt_create_iv') && defined('MCRYPT_DEV_URANDOM')) {
-            $rawBinary = mcrypt_create_iv($numInts * PHP_INT_SIZE, MCRYPT_DEV_URANDOM);
+
+        if (function_exists('mcrypt_create_iv')) {
+            $rawBinary = mcrypt_create_iv($numInts * PHP_INT_SIZE);
             for ($i = 0; $i < $numInts; ++$i) {
                 $thisInt = 0;
                 for ($j = 0; $j < PHP_INT_SIZE; ++$j) {
                     $thisInt = ($thisInt << 8) | (ord($rawBinary[$i * PHP_INT_SIZE + $j]) & 0xFF);
                 }
                 // Absolute value in two's compliment (with min int going to zero)
-                $thisInt = $thisInt & PHP_INT_MAX;
+                $thisInt &= PHP_INT_MAX;
                 $ints[]  = $thisInt;
             }
         }

@@ -36,19 +36,19 @@ for ($i = 0; $i < 20; $i++) {
     $hex    = PasswordGenerator::getHexPassword(64);
     $custom = PasswordGenerator::getCustomPassword(array('a', 'b'), 64);
 
-    if (in_array($ascii, $last)) {
+    if (in_array($ascii, $last, true)) {
         failTest("Duplicate ASCII password.");
     }
 
-    if (in_array($alpha, $last)) {
+    if (in_array($alpha, $last, true)) {
         failTest("Duplicate AlphaNumeric password.");
     }
 
-    if (in_array($hex, $last)) {
+    if (in_array($hex, $last, true)) {
         failTest("Duplicate Hex password.");
     }
 
-    if (in_array($custom, $last)) {
+    if (in_array($custom, $last, true)) {
         failTest("Duplicate Custom password.");
     }
 
@@ -107,7 +107,7 @@ if (PasswordGenerator::getCustomPassword("abc", 64) !== FALSE) {
 for ($i = 0; $i < 1000; $i++) {
     $ints  = PasswordGenerator::getRandomInts($i);
     $count = count($ints);
-    if ($count != $i) {
+    if ($count !== $i) {
         failTest("$i random ints is $count and not $i");
     }
 }
