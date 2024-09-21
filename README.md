@@ -1,6 +1,11 @@
 # Strong Passwords Generator
 
-[![Latest Stable Version](http://poser.pugx.org/nguyenanhung/strong-passwords-generator/v)](https://packagist.org/packages/nguyenanhung/strong-passwords-generator) [![Total Downloads](http://poser.pugx.org/nguyenanhung/strong-passwords-generator/downloads)](https://packagist.org/packages/nguyenanhung/strong-passwords-generator) [![Latest Unstable Version](http://poser.pugx.org/nguyenanhung/strong-passwords-generator/v/unstable)](https://packagist.org/packages/nguyenanhung/strong-passwords-generator) [![License](http://poser.pugx.org/nguyenanhung/strong-passwords-generator/license)](https://packagist.org/packages/nguyenanhung/strong-passwords-generator) [![PHP Version Require](http://poser.pugx.org/nguyenanhung/strong-passwords-generator/require/php)](https://packagist.org/packages/nguyenanhung/strong-passwords-generator)
+[![Latest Stable Version](https://img.shields.io/packagist/v/nguyenanhung/strong-passwords-generator.svg?style=flat-square)](https://packagist.org/packages/nguyenanhung/strong-passwords-generator)
+[![Total Downloads](https://img.shields.io/packagist/dt/nguyenanhung/strong-passwords-generator.svg?style=flat-square)](https://packagist.org/packages/nguyenanhung/strong-passwords-generator)
+[![Daily Downloads](https://img.shields.io/packagist/dd/nguyenanhung/strong-passwords-generator.svg?style=flat-square)](https://packagist.org/packages/nguyenanhung/strong-passwords-generator)
+[![Monthly Downloads](https://img.shields.io/packagist/dm/nguyenanhung/strong-passwords-generator.svg?style=flat-square)](https://packagist.org/packages/nguyenanhung/strong-passwords-generator)
+[![License](https://img.shields.io/packagist/l/nguyenanhung/strong-passwords-generator.svg?style=flat-square)](https://packagist.org/packages/nguyenanhung/strong-passwords-generator)
+[![PHP Version Require](https://img.shields.io/packagist/dependency-v/nguyenanhung/strong-passwords-generator/php)](https://packagist.org/packages/nguyenanhung/strong-passwords-generator)
 
 Script Generator Strong Passwords with PHP
 
